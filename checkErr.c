@@ -12,41 +12,41 @@
 
 #include "push_swap.h"
 
-void    error(void)
+void	error(void)
 {
-    write(2, "Error\n", 6);
-    exit(1);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-void free_raise_error(char **lst)
+void	free_raise_error(char **lst)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (lst)
-    {
-        while (lst[i])
-            free(lst[i++]);
-        free(lst);
-    }
-    write(2, "Error\n", 6);
-    exit(1);
+	i = 0;
+	if (lst)
+	{
+		while (lst[i])
+			free(lst[i++]);
+		free(lst);
+	}
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
-int is_sorted(t_node *stack_a)
+int	is_sorted(t_node *stack_a)
 {
-    while (stack_a && stack_a->next)
-    {
-        if (stack_a->num > stack_a->next->num)
-            return (0);
-        stack_a = stack_a->next;
-    }
-    return (1);
+	while (stack_a && stack_a->next)
+	{
+		if (stack_a->num > stack_a->next->num)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
 }
 
-void    free_stack(t_node **stack)
+void	free_stack(t_node **stack)
 {
-    t_node	*current;
+	t_node	*current;
 	t_node	*next;
 
 	current = *stack;
@@ -56,5 +56,5 @@ void    free_stack(t_node **stack)
 		free(current);
 		current = next;
 	}
-    *stack = NULL;
+	*stack = NULL;
 }

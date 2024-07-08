@@ -6,7 +6,7 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 15:30:35 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/07 16:53:47 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/08 21:37:42 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_lstadd_back(t_node **lst, t_node *new)
 {
 	t_node	*node;
-    
+
 	if (!lst || !new)
-        return ;
+		return ;
 	if (!*lst)
 		*lst = new;
 	else
@@ -37,13 +37,12 @@ void	ft_lstadd_front(t_node **lst, t_node *new)
 	*lst = new;
 }
 
-t_node* get_big(t_node *stack)
+t_node	*get_big(t_node *stack)
 {
-	t_node *big;
-	
+	t_node	*big;
+
 	if (!stack)
 		return (NULL);
-	
 	big = stack;
 	stack = stack->next;
 	while (stack)
@@ -54,13 +53,13 @@ t_node* get_big(t_node *stack)
 	}
 	return (big);
 }
-t_node* get_small(t_node *stack)
+
+t_node	*get_small(t_node *stack)
 {
-	t_node *small;
+	t_node	*small;
 
 	if (!stack)
 		return (NULL);
-	
 	small = stack;
 	stack = stack->next;
 	while (stack)
@@ -74,7 +73,7 @@ t_node* get_small(t_node *stack)
 
 int	stack_len(t_node *stack)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (stack)

@@ -6,74 +6,75 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 21:55:37 by slouham           #+#    #+#             */
-/*   Updated: 2024/06/25 12:58:33 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/08 21:35:58 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int     is_alldigit(const char *str)
+int	is_alldigit(const char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-    {
-        if (!ft_isdigit(str[i]))
-            return (1);
-        i++;
-    }
-    return (0);
-}
-char    *join(char  *str)
-{
-    char    *p;
-    
-    p = ft_strjoin(str, " ");
-    free(str);
-    return (p);
+	i = 0;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int     invalid(char *str)
+char	*join(char *str)
 {
-    int i;
-    int j;
+	char	*p;
 
-    i = 0;
-    j = 0;
-    while (str[i])
-    {
-        if (str[i] == ' ')
-            j++;
-        i++;
-    }
-    return (j == i);
+	p = ft_strjoin(str, " ");
+	free(str);
+	return (p);
 }
 
-int    find_dup(t_node **stack_a, int target)
+int	invalid(char *str)
 {
-    t_node *stack;
-    int     c;
+	int	i;
+	int	j;
 
-    c = 0;
-    stack = *stack_a;
-    while (stack)
-    {
-        if (stack->num == target)
-            c++;
-        stack = stack->next;
-    }
-    return (c);
+	i = 0;
+	j = 0;
+	while (str[i])
+	{
+		if (str[i] == ' ')
+			j++;
+		i++;
+	}
+	return (j == i);
 }
 
-char *unzero(char *s)
+int	find_dup(t_node **stack_a, int target)
 {
-    int     i;
+	t_node	*stack;
+	int		c;
 
-    i = 0;
-    if (s[i] == '+' || s[i] == '-')
-        i++;
-    while (s[i] && s[i] == '0')
-        i++;
-    return (ft_substr(s,i,ft_strlen(s)));
+	c = 0;
+	stack = *stack_a;
+	while (stack)
+	{
+		if (stack->num == target)
+			c++;
+		stack = stack->next;
+	}
+	return (c);
+}
+
+char	*unzero(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (s[i] == '+' || s[i] == '-')
+		i++;
+	while (s[i] && s[i] == '0')
+		i++;
+	return (ft_substr(s, i, ft_strlen(s)));
 }

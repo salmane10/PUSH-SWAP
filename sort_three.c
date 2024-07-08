@@ -15,7 +15,7 @@
 void	sort_three(t_node **stack_a)
 {
 	t_node	*lkbir;
-	
+
 	lkbir = get_big(*stack_a);
 	if (lkbir == *stack_a)
 		rotate(stack_a, 'a');
