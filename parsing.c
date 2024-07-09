@@ -6,7 +6,7 @@
 /*   By: slouham <slouham@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 17:34:43 by slouham           #+#    #+#             */
-/*   Updated: 2024/07/08 21:41:23 by slouham          ###   ########.fr       */
+/*   Updated: 2024/07/08 21:51:29 by slouham          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ void	parsing(t_node **stack, int ac, char **av)
 		free_raise_error(lst);
 	else
 		fill_stack(stack, lst);
-	check_dup(stack);
 	i = 0;
 	while (lst[i])
 		free(lst[i++]);
 	free(lst);
+	check_dup(stack);
 }
